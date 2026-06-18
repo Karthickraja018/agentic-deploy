@@ -1,0 +1,58 @@
+research_task:
+  description: >
+    Research the latest trends in artificial intelligence and machine learning.
+    Focus on developments in 2024 and 2025. Provide key insights and statistics.
+  expected_output: >
+    A comprehensive research report with key AI/ML trends, statistics, and insights
+  agent: researcher
+
+writing_task:
+  description: >
+    Based on the research findings, write a blog post about AI trends.
+    Make it engaging for a general audience, include examples, and keep it informative but accessible.
+  expected_output: >
+    A well-structured blog post about AI trends (800-1000 words)
+  agent: writer    
+
+
+evaluator_task:
+  description: >
+    Review and evaluate the blog post written by the writer.
+    Assess the quality, accuracy, clarity, and engagement level.
+    Check that it aligns with the research findings and is suitable for a general audience.
+    Provide a score out of 10 and constructive feedback.
+  expected_output: >
+    An evaluation report with a quality score (out of 10), strengths, areas for improvement,
+    and a final recommendation on whether the content is ready to publish.
+  agent: evaluator
+  context:
+    - research_task
+    - writing_task
+
+refiner_task:
+  description: >
+    Using the evaluator's feedback, refine and improve the blog post.
+    Address every area for improvement mentioned in the evaluation report.
+    Enhance clarity, flow, accuracy, and engagement while keeping the content
+    between 800-1000 words. Produce the final polished version of the blog post.
+  expected_output: >
+    A fully refined, publish-ready blog post (800-1000 words) that incorporates
+    all evaluator feedback with improved structure, clarity, and engagement.
+  agent: refiner
+  context:
+    - writing_task
+    - evaluator_task
+
+image_generation_task:
+  description: >
+    Based on the refined blog post content, create a compelling featured image for it.
+    First craft a detailed, descriptive image generation prompt that captures the
+    essence of the blog post visually. Then use the generate_image tool to create
+    the image using Pollinations.ai (free, no API key needed).
+    The image should be suitable as a blog post header/featured image (1200x630).
+  expected_output: >
+    A short image prompt used for generation, the generated image URL from Pollinations.ai,
+    and the markdown embed code: ![Featured Image](<url>) ready to add to the blog post.
+  agent: image_generator
+  context:
+    - refiner_task
