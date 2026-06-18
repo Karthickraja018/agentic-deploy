@@ -33,6 +33,7 @@ gemini_llm = LLM(
     temperature=0.7
 )
 #crewai
+print("hello")
 @CrewBase
 class AiTrendCrew:
     """AiTrendCrew system orchestration using YAML files"""
