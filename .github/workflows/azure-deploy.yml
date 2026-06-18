@@ -3,7 +3,7 @@ name: Build and Deploy FastAPI to Azure
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
