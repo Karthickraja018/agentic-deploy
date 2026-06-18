@@ -32,7 +32,7 @@ gemini_llm = LLM(
     api_key=os.getenv("GEMINI_API_KEY"),
     temperature=0.7
 )
-
+#crewai
 @CrewBase
 class AiTrendCrew:
     """AiTrendCrew system orchestration using YAML files"""
