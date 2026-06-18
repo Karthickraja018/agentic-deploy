@@ -29,7 +29,7 @@ GEMINI_MODEL = "gemini/gemini-3.1-flash-lite"
 # Initialize Gemini 2.5 Flash model using CrewAI's LLM class
 gemini_llm = LLM(
     model=GEMINI_MODEL,
-    api_key=os.getenv("GOOGLE_API_KEY"),
+    api_key=os.getenv("GEMINI_API_KEY"),
     temperature=0.7
 )
 
